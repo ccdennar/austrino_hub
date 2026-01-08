@@ -1,4 +1,4 @@
-const DURATION = 3000; // ← changed from 5000
+const DURATION = 3000; // ← 3-second horizontal timer
 const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
 let idx=0,tick=null;
 function show(n){slides.forEach(s=>s.classList.remove('active'));dots.forEach(d=>d.classList.remove('active'));idx=(n+slides.length)%slides.length;slides[idx].classList.add('active');dots[idx].classList.add('active');}
