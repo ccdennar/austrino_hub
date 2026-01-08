@@ -1,0 +1,19 @@
+/* =====  BLACK TOOLBAR  ===== */
+.top-bar{background:#000;color:#fff;}
+.logo{color:#fff;}
+.desktop-nav a{color:#ddd;}
+.desktop-nav a:hover{color:#00aeff;}
+
+/* =====  “A” LOGO  ===== */
+.logo::before{content:"A";display:inline-block;margin-right:.25em;font-weight:800;color:#00aeff;}
+
+/* =====  HIGH-CONTRAST HERO  ===== */
+.hero{background:linear-gradient(115deg,#000 0%,#111 50%,#000 100%);color:#fff;}
+
+/* =====  SMALLER STAT NUMBERS  ===== */
+.stat-val{font-size:clamp(1.6rem,3vw,2.2rem);}   /* was 2rem → 3rem */
+
+/* =====  COPY BLOCK  ===== */
+.copy-block{background:#f7f9fc;padding:4rem 0;}
+.copy-block h2{margin-bottom:1rem;font-size:1.75rem;}
+.copy-block p{max-width:680px;font-size:1.05rem;line-height:1.7;color:#333;}
