@@ -1,0 +1,7 @@
+name = "austrino-website"
+main = "public/index.html"
+compatibility_date = "2026-01-09"
+
+[build]
+command = ""  # No build step needed for static site
+upload_dir = "public"
