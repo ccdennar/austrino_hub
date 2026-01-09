@@ -1,0 +1,310 @@
+<!-- Reusable Hero Section Component -->
+<section class="hero-section" data-parallax="0.5">
+    <div class="hero-background">
+        <img src="images/hero/hero-bg.jpg" alt="Hero Background" data-src="images/hero/hero-bg.jpg">
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="hero-title-main" data-text="Make it real">Make it real</span>
+                <span class="hero-title-sub" data-animate="fadeIn" data-delay="300">Transform your business with Austrino</span>
+            </h1>
+            <p class="hero-description" data-animate="fadeIn" data-delay="600">
+                We deliver real value through our people-centric approach and unique human-AI chemistry. 
+                Together, we can build the future of your business.
+            </p>
+            <div class="hero-actions" data-animate="fadeIn" data-delay="900">
+                <a href="#services" class="btn btn-primary hero-cta">
+                    Discover Our Services
+                    <svg class="cta-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14m-7-7l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="pages/contact/index.html" class="btn btn-secondary hero-cta">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-stats" data-animate="fadeIn" data-delay="1200">
+            <div class="stat-item">
+                <span class="stat-number" data-counter="500" data-duration="2000">0</span>
+                <span class="stat-label">Clients Served</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-counter="50" data-duration="2000">0</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-counter="25" data-duration="2000">0</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero-scroll-indicator">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span class="scroll-text">Scroll to explore</span>
+    </div>
+</section>
+
+<!-- Hero Component CSS -->
+<style>
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 112, 173, 0.9) 0%, rgba(18, 171, 219, 0.9) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+    max-width: 1000px;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+}
+
+.hero-title-main {
+    display: block;
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.hero-title-main::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    background-size: 200% 100%;
+    animation: shine 3s infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.hero-title-sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.cta-arrow {
+    transition: transform 0.3s ease;
+}
+
+.hero-cta:hover .cta-arrow {
+    transform: translateX(5px);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--white);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 10px;
+    background: var(--white);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0; }
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive Hero */
+@media (max-width: 1024px) {
+    .hero-title-main {
+        font-size: 4rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+        gap: 3rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 80vh;
+    }
+    
+    .hero-title-main {
+        font-size: 3rem;
+    }
+    
+    .hero-title-sub {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-main {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .hero-cta {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+</style>

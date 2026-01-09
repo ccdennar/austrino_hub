@@ -1,0 +1,22 @@
+{
+    "siteName": "Austrino",
+    "siteDescription": "Austrino - Make it real. We deliver real value through our people-centric approach and unique human-AI chemistry.",
+    "siteKeywords": "digital transformation, cloud services, AI analytics, cybersecurity, consulting, engineering",
+    "author": "Austrino Team",
+    "robots": "index, follow",
+    "language": "en",
+    "charset": "UTF-8",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "themeColor": "#0070AD",
+    "social": {
+        "twitter": "@austrino",
+        "facebook": "austrino.official",
+        "linkedin": "austrino",
+        "youtube": "AustrinoChannel"
+    },
+    "contact": {
+        "email": "info@austrino.com",
+        "phone": "+1-800-AUSTRINO",
+        "address": "123 Innovation Drive, Tech City, TC 12345"
+    }
+}

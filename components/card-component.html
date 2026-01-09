@@ -1,0 +1,716 @@
+<!-- Reusable Card Component Templates -->
+
+<!-- Service Card Template -->
+<template id="service-card-template">
+    <div class="service-card" data-category="{{category}}">
+        <div class="card-icon">
+            <img src="{{icon}}" alt="{{title}}" loading="lazy">
+        </div>
+        <h3 class="card-title">{{title}}</h3>
+        <p class="card-description">{{description}}</p>
+        <div class="card-features">
+            {{#features}}
+            <span class="feature-tag">{{.}}</span>
+            {{/features}}
+        </div>
+        <a href="{{link}}" class="card-link">
+            {{linkText}}
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+</template>
+
+<!-- Insight Card Template -->
+<template id="insight-card-template">
+    <article class="insight-card">
+        <div class="card-image">
+            <img src="{{image}}" alt="{{title}}" loading="lazy">
+            <div class="card-category">{{category}}</div>
+        </div>
+        <div class="card-content">
+            <div class="card-meta">
+                <span class="card-date">{{date}}</span>
+                <span class="card-read-time">{{readTime}}</span>
+            </div>
+            <h3 class="card-title">{{title}}</h3>
+            <p class="card-excerpt">{{excerpt}}</p>
+            <div class="card-tags">
+                {{#tags}}
+                <span class="tag">{{.}}</span>
+                {{/tags}}
+            </div>
+            <a href="{{link}}" class="read-more">
+                {{linkText}}
+                <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M5 12h14m-7-7l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </article>
+</template>
+
+<!-- Client Card Template -->
+<template id="client-card-template">
+    <div class="client-card">
+        <div class="client-header">
+            <div class="client-logo">
+                <img src="{{logo}}" alt="{{clientName}}" loading="lazy">
+            </div>
+            <div class="client-info">
+                <h3 class="client-name">{{clientName}}</h3>
+                <span class="client-industry">{{industry}}</span>
+            </div>
+        </div>
+        <div class="client-content">
+            <h4 class="case-study-title">{{caseStudyTitle}}</h4>
+            <p class="case-study-description">{{description}}</p>
+            <div class="case-results">
+                {{#results}}
+                <div class="result-item">
+                    <span class="result-number">{{number}}</span>
+                    <span class="result-label">{{label}}</span>
+                </div>
+                {{/results}}
+            </div>
+        </div>
+        <div class="client-footer">
+            <a href="{{caseStudyLink}}" class="case-study-link">
+                Read Full Case Study
+                <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M5 12h14m-7-7l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</template>
+
+<!-- News Card Template -->
+<template id="news-card-template">
+    <article class="news-card">
+        <div class="news-meta">
+            <span class="news-date">{{date}}</span>
+            <span class="news-category">{{category}}</span>
+        </div>
+        <h3 class="news-title">{{title}}</h3>
+        <p class="news-excerpt">{{excerpt}}</p>
+        <div class="news-tags">
+            {{#tags}}
+            <span class="tag">{{.}}</span>
+            {{/tags}}
+        </div>
+        <a href="{{link}}" class="news-link">
+            Read More
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+        </a>
+    </article>
+</template>
+
+<!-- Team Card Template -->
+<template id="team-card-template">
+    <div class="team-card">
+        <div class="team-member-image">
+            <img src="{{image}}" alt="{{name}}" loading="lazy">
+            <div class="team-member-overlay">
+                <div class="team-member-social">
+                    <a href="{{linkedin}}" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="{{twitter}}" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="team-member-info">
+            <h3 class="team-member-name">{{name}}</h3>
+            <p class="team-member-title">{{title}}</p>
+            <p class="team-member-bio">{{bio}}</p>
+            <div class="team-member-expertise">
+                {{#expertise}}
+                <span class="expertise-tag">{{.}}</span>
+                {{/expertise}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- Card Component CSS -->
+<style>
+/* Base Card Styles */
+.card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Service Card */
+.service-card {
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+    background: var(--light-gray);
+    color: var(--text-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.card-link:hover {
+    color: var(--dark-blue);
+    gap: 0.8rem;
+}
+
+.link-arrow {
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover .link-arrow {
+    transform: translateX(5px);
+}
+
+/* Insight Card */
+.insight-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.insight-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.card-excerpt {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    background: var(--light-gray);
+    color: var(--text-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--dark-blue);
+    gap: 0.8rem;
+}
+
+/* Client Card */
+.client-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+}
+
+.client-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.client-logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.client-info {
+    flex: 1;
+}
+
+.client-name {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.client-industry {
+    color: #999;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.case-study-title {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.case-study-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.case-results {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.result-item {
+    text-align: center;
+}
+
+.result-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.case-study-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.case-study-link:hover {
+    color: var(--dark-blue);
+    gap: 0.8rem;
+}
+
+/* News Card */
+.news-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.news-category {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.news-title {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.news-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.news-link:hover {
+    color: var(--dark-blue);
+    gap: 0.8rem;
+}
+
+/* Team Card */
+.team-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.team-member-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.team-member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-member-image img {
+    transform: scale(1.1);
+}
+
+.team-member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 112, 173, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-member-overlay {
+    opacity: 1;
+}
+
+.team-member-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.team-member-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.team-member-social a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.team-member-info {
+    padding: 2rem;
+}
+
+.team-member-name {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.team-member-title {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-member-bio {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.team-member-expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.expertise-tag {
+    background: var(--light-gray);
+    color: var(--text-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .service-card,
+    .insight-card,
+    .client-card,
+    .news-card,
+    .team-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .case-results {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .client-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<!-- Card Component JavaScript -->
+<script>
+// Card Component Generator
+class CardGenerator {
+    constructor() {
+        this.templates = {
+            service: document.getElementById('service-card-template'),
+            insight: document.getElementById('insight-card-template'),
+            client: document.getElementById('client-card-template'),
+            news: document.getElementById('news-card-template'),
+            team: document.getElementById('team-card-template')
+        };
+    }
+    
+    generateCard(type, data) {
+        const template = this.templates[type];
+        if (!template) return null;
+        
+        let html = template.innerHTML;
+        
+        // Simple template replacement (for demo - use proper templating in production)
+        Object.keys(data).forEach(key => {
+            const regex = new RegExp(`{{${key}}}`, 'g');
+            html = html.replace(regex, data[key]);
+        });
+        
+        // Handle arrays (like features, tags, etc.)
+        if (data.features) {
+            const featuresHtml = data.features.map(feature => 
+                `<span class="feature-tag">${feature}</span>`
+            ).join('');
+            html = html.replace('{{#features}}', featuresHtml).replace('{{/features}}', '');
+        }
+        
+        if (data.tags) {
+            const tagsHtml = data.tags.map(tag => 
+                `<span class="tag">${tag}</span>`
+            ).join('');
+            html = html.replace('{{#tags}}', tagsHtml).replace('{{/tags}}', '');
+        }
+        
+        if (data.results) {
+            const resultsHtml = data.results.map(result => 
+                `<div class="result-item">
+                    <span class="result-number">${result.number}</span>
+                    <span class="result-label">${result.label}</span>
+                </div>`
+            ).join('');
+            html = html.replace('{{#results}}', resultsHtml).replace('{{/results}}', '');
+        }
+        
+        if (data.expertise) {
+            const expertiseHtml = data.expertise.map(skill => 
+                `<span class="expertise-tag">${skill}</span>`
+            ).join('');
+            html = html.replace('{{#expertise}}', expertiseHtml).replace('{{/expertise}}', '');
+        }
+        
+        const element = document.createElement('div');
+        element.innerHTML = html;
+        return element.firstElementChild;
+    }
+    
+    generateServiceCard(data) {
+        return this.generateCard('service', data);
+    }
+    
+    generateInsightCard(data) {
+        return this.generateCard('insight', data);
+    }
+    
+    generateClientCard(data) {
+        return this.generateCard('client', data);
+    }
+    
+    generateNewsCard(data) {
+        return this.generateCard('news', data);
+    }
+    
+    generateTeamCard(data) {
+        return this.generateCard('team', data);
+    }
+}
+
+// Initialize card generator
+const cardGenerator = new CardGenerator();
+
+// Example usage:
+// const serviceCard = cardGenerator.generateServiceCard({
+//     title: "Digital Transformation",
+//     description: "Transform your business with cutting-edge digital solutions...",
+//     icon: "images/services/digital-transformation.jpg",
+//     link: "pages/services/digital-transformation.html",
+//     linkText: "Learn More",
+//     category: "digital",
+//     features: ["Cloud Native", "AI-Powered", "Scalable"]
+// });
+
+// Export for use in other scripts
+window.CardGenerator = CardGenerator;
+</script>

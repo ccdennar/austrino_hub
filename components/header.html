@@ -1,0 +1,324 @@
+<!-- Reusable Header Component -->
+<header id="main-header">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">
+                <img src="images/logo/austrino-logo-blue.png" alt="Austrino" width="150">
+            </a>
+        </div>
+        <nav role="navigation" aria-label="Main navigation">
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="pages/services/index.html" class="nav-link">Services</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h4>Digital Services</h4>
+                                <ul>
+                                    <li><a href="pages/services/digital-transformation.html">Digital Transformation</a></li>
+                                    <li><a href="pages/services/cloud-services.html">Cloud Services</a></li>
+                                    <li><a href="pages/services/ai-analytics.html">AI & Analytics</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-section">
+                                <h4>Security & Consulting</h4>
+                                <ul>
+                                    <li><a href="pages/services/cybersecurity.html">Cybersecurity</a></li>
+                                    <li><a href="pages/services/consulting.html">Consulting</a></li>
+                                    <li><a href="pages/services/engineering.html">Engineering</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <h4>Ready to transform?</h4>
+                                <p>Discover how Austrino can help your business</p>
+                                <a href="pages/contact/index.html" class="btn btn-primary">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="pages/industries/index.html" class="nav-link">Industries</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h4>Key Industries</h4>
+                                <ul>
+                                    <li><a href="pages/industries/financial-services.html">Financial Services</a></li>
+                                    <li><a href="pages/industries/healthcare.html">Healthcare</a></li>
+                                    <li><a href="pages/industries/retail.html">Retail</a></li>
+                                    <li><a href="pages/industries/manufacturing.html">Manufacturing</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <h4>Industry Solutions</h4>
+                                <p>Tailored technology solutions for your sector</p>
+                                <a href="pages/industries/index.html" class="btn btn-secondary">Explore All</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/insights/index.html" class="nav-link">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/careers/index.html" class="nav-link">Careers</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="pages/about/index.html" class="nav-link">About</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h4>Company</h4>
+                                <ul>
+                                    <li><a href="pages/about/company.html">About Austrino</a></li>
+                                    <li><a href="pages/about/leadership.html">Leadership</a></li>
+                                    <li><a href="pages/about/history.html">History</a></li>
+                                    <li><a href="pages/about/values.html">Values</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-section">
+                                <h4>Resources</h4>
+                                <ul>
+                                    <li><a href="pages/news/index.html">Newsroom</a></li>
+                                    <li><a href="pages/about/partners.html">Partners</a></li>
+                                    <li><a href="pages/about/awards.html">Awards</a></li>
+                                    <li><a href="pages/contact/index.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/contact/index.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <div class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Search Modal -->
+    <div class="search-modal">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" class="search-input" placeholder="Search Austrino..." autofocus>
+                <button class="close-search">&times;</button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </div>
+</header>
+
+<!-- Header Component CSS -->
+<style>
+/* Header Component Styles */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.search-toggle:hover {
+    color: var(--primary-blue);
+}
+
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.search-container {
+    background: var(--white);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.search-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.close-search {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-search:hover {
+    color: var(--text-dark);
+}
+
+.search-results {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.search-result-item a:hover {
+    text-decoration: underline;
+}
+
+.no-results {
+    padding: 2rem;
+    text-align: center;
+    color: #999;
+}
+
+/* Mega Menu Styles */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-menu-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mega-menu-section h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.mega-menu-section ul {
+    list-style: none;
+}
+
+.mega-menu-section li {
+    margin-bottom: 0.5rem;
+}
+
+.mega-menu-section a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.mega-menu-section a:hover {
+    color: var(--primary-blue);
+}
+
+.mega-menu-cta {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.mega-menu-cta h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.mega-menu-cta p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mega-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-item.active .mega-menu {
+        max-height: 500px;
+    }
+    
+    .mega-menu-content {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .search-container {
+        margin: 20% auto;
+        padding: 1rem;
+    }
+}
+</style>

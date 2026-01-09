@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austrino – Make it real</title>
+    <meta name="description" content="Austrino delivers real value through our people-centric approach and unique human-AI chemistry. Transform your business with our technology solutions.">
+    <meta name="keywords" content="digital transformation, cloud services, AI analytics, cybersecurity, consulting, engineering">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Austrino – Make it real">
+    <meta property="og:description" content="Transform your business with Austrino's technology solutions">
+    <meta property="og:image" content="images/logo/austrino-logo-blue.png">
+    <meta property="og:url" content="https://www.austrino.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header Component (loaded dynamically) -->
+    <div id="header-container">
+        <!-- Loading state -->
+        <header class="loading-header">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-placeholder">Austrino</div>
+                </div>
+                <nav>
+                    <div class="loading-nav">Loading navigation...</div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section Component (loaded dynamically) -->
+    <div id="hero-container">
+        <!-- Loading state -->
+        <section class="hero-loading">
+            <div class="hero-content">
+                <h1>Loading...</h1>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title" data-animate="fadeIn">Our Services</h2>
+            <div class="cards-grid" id="services-grid">
+                <!-- Service cards will be dynamically loaded here -->
+                <div class="loading-cards">
+                    <div class="loading-card">Loading services...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="section insights">
+        <div class="container">
+            <h2 class="section-title" data-animate="fadeIn">Latest Insights</h2>
+            <div class="cards-grid" id="insights-grid">
+                <!-- Insight cards will be dynamically loaded here -->
+                <div class="loading-cards">
+                    <div class="loading-card">Loading insights...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Stories Section -->
+    <section id="client-stories" class="section client-stories">
+        <div class="container">
+            <h2 class="section-title" data-animate="fadeIn">Client Success Stories</h2>
+            <div class="cards-grid" id="clients-grid">
+                <!-- Client cards will be dynamically loaded here -->
+                <div class="loading-cards">
+                    <div class="loading-card">Loading case studies...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="section news">
+        <div class="container">
+            <h2 class="section-title" data-animate="fadeIn">Latest News</h2>
+            <div class="news-grid" id="news-grid">
+                <!-- News cards will be dynamically loaded here -->
+                <div class="loading-cards">
+                    <div class="loading-card">Loading news...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content" data-animate="fadeIn">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's work together to make your vision a reality</p>
+                <div class="cta-actions">
+                    <a href="pages/contact/index.html" class="btn btn-primary">Get Started</a>
+                    <a href="pages/services/index.html" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component (loaded dynamically) -->
+    <div id="footer-container">
+        <!-- Loading state -->
+        <footer class="loading-footer">
+            <div class="container">
+                <p>Loading footer...</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/component-loader.js"></script>
+    
+    <script>
+        // Load all components and content
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 Loading Austrino website components...');
+            
+            try {
+                // Load main components
+                await Promise.all([
+                    componentLoader.loadComponent('header', '#header-container'),
+                    componentLoader.loadComponent('hero-section', '#hero-container'),
+                    componentLoader.loadComponent('footer', '#footer-container')
+                ]);
+                
+                console.log('✅ Main components loaded');
+                
+                // Load content cards
+                await loadContentCards();
+                
+                console.log('✅ All content loaded successfully');
+                
+            } catch (error) {
+                console.error('❌ Error loading components:', error);
+                // Fallback: Show basic content if components fail to load
+                showFallbackContent();
+            }
+        });
+        
+        // Load dynamic content cards
+        async function loadContentCards() {
+            // Wait for card generator to be available
+            while (!window.cardGenerator) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            // Load service cards
+            const servicesGrid = document.getElementById('services-grid');
+            if (servicesGrid && window.cardGenerator) {
+                const services = [
+                    {
+                        title: "Digital Transformation",
+                        description: "Transform your business with cutting-edge digital solutions that drive growth and efficiency in the modern economy.",
+                        icon: "images/services/digital-transformation.jpg",
+                        link: "pages/services/digital-transformation.html",
+                        linkText: "Learn more",
+                        category: "digital",
+                        features: ["Cloud Native", "AI-Powered", "Scalable"]
+                    },
+                    {
+                        title: "Cloud Services", 
+                        description: "Leverage the power of cloud computing to scale your operations and enhance your technological capabilities.",
+                        icon: "images/services/cloud-services.jpg",
+                        link: "pages/services/cloud-services.html",
+                        linkText: "Learn more",
+                        category: "infrastructure",
+                        features: ["Hybrid Cloud", "Multi-Cloud", "Serverless"]
+                    },
+                    {
+                        title: "AI & Analytics",
+                        description: "Unlock the potential of artificial intelligence and data analytics to make informed business decisions.",
+                        icon: "images/services/ai-analytics.jpg", 
+                        link: "pages/services/ai-analytics.html",
+                        linkText: "Learn more",
+                        category: "intelligence",
+                        features: ["Machine Learning", "Predictive Analytics", "Computer Vision"]
+                    },
+                    {
+                        title: "Cybersecurity",
+                        description: "Protect your digital assets with comprehensive cybersecurity solutions tailored to your business needs.",
+                        icon: "images/services/cybersecurity.jpg",
+                        link: "pages/services/cybersecurity.html", 
+                        linkText: "Learn more",
+                        category: "security",
+                        features: ["Zero Trust", "Threat Detection", "Compliance"]
+                    },
+                    {
+                        title: "Consulting",
+                        description: "Strategic consulting services to help you navigate complex business challenges and opportunities.",
+                        icon: "images/services/consulting.jpg",
+                        link: "pages/services/consulting.html",
+                        linkText: "Learn more", 
+                        category: "strategy",
+                        features: ["Digital Strategy", "Technology Roadmap", "Innovation"]
+                    },
+                    {
+                        title: "Engineering",
+                        description: "Engineering excellence to build the products and services of tomorrow with innovation and precision.",
+                        icon: "images/services/engineering.jpg",
+                        link: "pages/services/engineering.html",
+                        linkText: "Learn more",
+                        category: "development",
+                        features: ["DevOps", "Microservices", "Quality Assurance"]
+                    }
+                ];
+                
+                servicesGrid.innerHTML = ''; // Clear loading state
+                services.forEach(service => {
+                    const card = window.cardGenerator.generateServiceCard(service);
+                    if (card) servicesGrid.appendChild(card);
+                });
+            }
+            
+            // Load insight cards
+            const insightsGrid = document.getElementById('insights-grid');
+            if (insightsGrid && window.cardGenerator) {
+                const insights = [
+                    {
+                        title: "The Future of AI in Business",
+                        excerpt: "Exploring how artificial intelligence is reshaping industries and creating new opportunities for growth.",
+                        image: "images/insights/ai-future.jpg",
+                        link: "pages/insights/ai-future.html",
+                        linkText: "Read more",
+                        date: "January 9, 2024",
+                        readTime: "5 min read",
+                        category: "AI & ML",
+                        tags: ["Artificial Intelligence", "Business Strategy", "Innovation"]
+                    },
+                    {
+                        title: "Sustainable Technology Solutions",
+                        excerpt: "How technology can drive environmental sustainability while maintaining business profitability.",
+                        image: "images/insights/sustainability.jpg", 
+                        link: "pages/insights/sustainability.html",
+                        linkText: "Read more",
+                        date: "January 7, 2024",
+                        readTime: "7 min read", 
+                        category: "Sustainability",
+                        tags: ["Green Tech", "ESG", "Innovation"]
+                    },
+                    {
+                        title: "Digital Workforce Transformation",
+                        excerpt: "Strategies for building a resilient and adaptive workforce in the digital age.",
+                        image: "images/insights/workforce.jpg",
+                        link: "pages/insights/workforce.html", 
+                        linkText: "Read more",
+                        date: "January 5, 2024",
+                        readTime: "6 min read",
+                        category: "Digital Transformation",
+                        tags: ["Remote Work", "Digital Skills", "HR Tech"]
+                    }
+                ];
+                
+                insightsGrid.innerHTML = ''; // Clear loading state
+                insights.forEach(insight => {
+                    const card = window.cardGenerator.generateInsightCard(insight);
+                    if (card) insightsGrid.appendChild(card);
+                });
+            }
+            
+            // Load client cards
+            const clientsGrid = document.getElementById('clients-grid');
+            if (clientsGrid && window.cardGenerator) {
+                const clients = [
+                    {
+                        clientName: "Global Retail Corp",
+                        industry: "Retail",
+                        caseStudyTitle: "Global Retail Transformation",
+                        description: "How we helped a major retailer transform their digital presence and increase online sales by 300%.",
+                        logo: "images/clients/retail-logo.png",
+                        caseStudyLink: "pages/clients/retail-case.html",
+                        results: [
+                            { number: "300%", label: "Sales Increase" },
+                            { number: "50%", label: "Cost Reduction" },
+                            { number: "24/7", label: "Availability" }
+                        ]
+                    },
+                    {
+                        clientName: "Finance Bank International",
+                        industry: "Financial Services", 
+                        caseStudyTitle: "Financial Services Innovation",
+                        description: "Implementing cutting-edge fintech solutions for a leading bank to enhance customer experience.",
+                        logo: "images/clients/finance-logo.png",
+                        caseStudyLink: "pages/clients/finance-case.html",
+                        results: [
+                            { number: "85%", label: "Faster Processing" },
+                            { number: "99.9%", label: "Uptime" },
+                            { number: "4.8", label: "Customer Rating" }
+                        ]
+                    },
+                    {
+                        clientName: "Healthcare Partners",
+                        industry: "Healthcare",
+                        caseStudyTitle: "Healthcare Digitalization", 
+                        description: "Streamlining patient care through innovative digital health solutions and data management systems.",
+                        logo: "images/clients/healthcare-logo.png",
+                        caseStudyLink: "pages/clients/healthcare-case.html",
+                        results: [
+                            { number: "60%", label: "Efficiency Gain" },
+                            { number: "40%", label: "Cost Savings" },
+                            { number: "95%", label: "Patient Satisfaction" }
+                        ]
+                    }
+                ];
+                
+                clientsGrid.innerHTML = ''; // Clear loading state
+                clients.forEach(client => {
+                    const card = window.cardGenerator.generateClientCard(client);
+                    if (card) clientsGrid.appendChild(card);
+                });
+            }
+            
+            // Load news cards
+            const newsGrid = document.getElementById('news-grid');
+            if (newsGrid && window.cardGenerator) {
+                const news = [
+                    {
+                        title: "Austrino Partners with Leading AI Research Institute",
+                        excerpt: "Announcing our strategic partnership to advance artificial intelligence research and applications.",
+                        link: "pages/news/ai-partnership.html",
+                        linkText: "Read More",
+                        date: "January 9, 2024",
+                        category: "Partnership",
+                        tags: ["AI", "Research", "Innovation"]
+                    },
+                    {
+                        title: "Expansion into Asia-Pacific Market",
+                        excerpt: "Austrino continues global growth with new offices in Singapore and Sydney.",
+                        link: "pages/news/apac-expansion.html", 
+                        linkText: "Read More",
+                        date: "January 5, 2024",
+                        category: "Expansion",
+                        tags: ["Growth", "APAC", "Global"]
+                    },
+                    {
+                        title: "Sustainability Initiative Launch",
+                        excerpt: "Our commitment to achieving carbon neutrality by 2030 across all global operations.",
+                        link: "pages/news/sustainability-2030.html",
+                        linkText: "Read More", 
+                        date: "January 2, 2024",
+                        category: "Sustainability",
+                        tags: ["ESG", "Environment", "2030"]
+                    }
+                ];
+                
+                newsGrid.innerHTML = ''; // Clear loading state
+                news.forEach(article => {
+                    const card = window.cardGenerator.generateNewsCard(article);
+                    if (card) newsGrid.appendChild(card);
+                });
+            }
+        }
+        
+        // Fallback content if components fail to load
+        function showFallbackContent() {
+            console.log('🛠️ Showing fallback content');
+            
+            // Show basic header
+            document.getElementById('header-container').innerHTML = `
+                <header style="background: white; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+                        <h1 style="color: #0070AD; margin: 0;">Austrino</h1>
+                        <nav>
+                            <a href="#services" style="margin: 0 1rem; text-decoration: none; color: #333;">Services</a>
+                            <a href="#insights" style="margin: 0 1rem; text-decoration: none; color: #333;">Insights</a>
+                            <a href="#contact" style="margin: 0 1rem; text-decoration: none; color: #333;">Contact</a>
+                        </nav>
+                    </div>
+                </header>
+            `;
+            
+            // Show basic hero
+            document.getElementById('hero-container').innerHTML = `
+                <section style="background: linear-gradient(135deg, #0070AD 0%, #12ABDB 100%); color: white; padding: 4rem 2rem; text-align: center;">
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Make it real</h1>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem;">We deliver real value through our people-centric approach and unique human-AI chemistry</p>
+                    <a href="#services" style="background: white; color: #0070AD; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold;">Discover Our Services</a>
+                </section>
+            `;
+            
+            // Show basic footer
+            document.getElementById('footer-container').innerHTML = `
+                <footer style="background: #333; color: white; padding: 2rem; text-align: center;">
+                    <p>&copy; 2024 Austrino. All rights reserved.</p>
+                </footer>
+            `;
+        }
+    </script>
+</body>
+</html>
