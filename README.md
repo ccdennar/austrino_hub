@@ -1,3 +1,4 @@
+<pre style="font-family: monospace; line-height: 1.4;">
 austrino-website/
 │
 ├── wrangler.toml                    # Cloudflare Pages configuration
@@ -114,3 +115,4 @@ austrino-website/
     │   └── meta.json                   # Site configuration & SEO data
     │
     └── sitemap.html                    # XML sitemap for SEO
+</pre>
